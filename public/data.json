@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "English Grammar Mastery",
+        "picture": "https://i.ibb.co/ykbPc7H/6.jpg",
+        "price": 69.99,
+        "description": "Improve your English grammar skills with this comprehensive course."
+    },
+    {
+        "id": 2,
+        "name": "Physics: The Fundamentals",
+        "picture": "https://i.ibb.co/WcTjBpB/5.jpg",
+        "price": 89.99,
+        "description": "Learn the fundamental principles of physics in an easy-to-understand way."
+    },
+    {
+        "id": 3,
+        "name": "Digital Marketing Essentials",
+        "picture": "https://i.ibb.co/XzbC76h/4.jpg",
+        "price": 79.99,
+        "description": "Master the basics of digital marketing and grow your online presence."
+    },
+    {
+        "id": 4,
+        "name": "Psychology 101",
+        "picture": "https://i.ibb.co/HTLH5hd/3.jpg",
+        "price": 94.99,
+        "description": "Explore the basics of psychology and understand human behavior."
+    },
+    {
+        "id": 5,
+        "name": "Introduction to Data Science",
+        "picture": "https://i.ibb.co/DLSCCrL/2.jpg",
+        "price": 109.99,
+        "description": "Get started with data science, data analysis, and data visualization."
+    },
+    {
+        "id": 6,
+        "name": "Music Theory for Beginners",
+        "picture": "https://i.ibb.co/L5kqhQ1/1.jpg",
+        "price": 59.99,
+        "description": "Learn the basics of music theory, notation, and composition."
+    }
+]
