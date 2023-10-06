@@ -3,7 +3,7 @@ import './Banner.css'
 const Banner = () => {
     return (
         <div>
-            <div className="">
+            <div>
                 <img className="w-full h-[100vh] absolute -top-[0px] image opacity-85 -z-10" alt="" />
             </div>
             <div className="text-center h-[90vh] flex justify-center items-center">
