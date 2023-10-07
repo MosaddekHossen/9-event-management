@@ -76,7 +76,7 @@ const Header = () => {
                         </label>
                         {navLinkMd}
                     </div>
-                    <Link to='/'><a className="normal-case text-3xl font-bold text-[#6531ae]">Education</a></Link>
+                    <Link to='/'><button className="normal-case text-3xl font-bold text-[#6531ae]">Education</button></Link>
                 </div>
                 <div className="navbar-center bg-white px-12 rounded-lg lg:flex">
                     {navLink}

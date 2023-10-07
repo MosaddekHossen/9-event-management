@@ -3,6 +3,7 @@ import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link } from "react-router-dom";
+import { sendEmailVerification, updateProfile } from "firebase/auth";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -11,50 +12,52 @@ const Register = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
+        const name = e.target.name.value;
+        const image = e.target.img.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
         const accepted = e.target.terms.checked;
-        console.log(accepted)
+        // console.log(accepted)
 
         if (password.length < 6) {
-            return Swal.fire(
-                'Oops!',
-                'Password should be at least 6 characters',
-                'error'
-            )
+            return Swal.fire('Oops!', 'Password should be at least 6 characters', 'error')
         }
         else if (!/[A-Z]/.test(password)) {
-            return Swal.fire(
-                'Oops!',
-                'Your password should have at least one upper case characters.',
-                'error'
-            )
+            return Swal.fire('Oops!', 'Your password should have at least one upper case characters.', 'error')
         }
         else if (!accepted) {
-            Swal.fire(
-                'Oops!',
-                'Please accept our terms and conditions',
-                'error'
-            )
+            Swal.fire('Oops!', 'Please accept our terms and conditions', 'error')
             return;
         }
 
         createUser(email, password)
             .then(res => {
                 console.log(res.user)
-                Swal.fire(
-                    'Good job!',
-                    'Success Sign Up!',
-                    'success'
-                )
+                Swal.fire('Good job!', 'User Created Successfully!', 'success')
+
+                // Update Profile
+                updateProfile(res.user, {
+                    displayName: name,
+                    photoURL: image
+                })
+                    .then(() => {
+                        console.log("Update Profile!")
+                        // Swal.fire('Oops!', "Update Profile!", 'success')
+                    })
+                    .catch(err => {
+                        Swal.fire('Oops!', err.message, 'error')
+                        console.log(err.message)
+                    })
+
+                // Send verification email                
+                // sendEmailVerification(res.user)
+                //     .then(() => {
+                //         Swal.fire('Good job!', 'Please check your email and verify your account!', 'success')
+                //     })
             })
             .catch(err => {
                 console.log(err.message)
-                Swal.fire(
-                    'Oops!',
-                    err.message,
-                    'error'
-                )
+                Swal.fire('Oops!', err.message, 'error')
             })
     }
     return (
@@ -63,6 +66,10 @@ const Register = () => {
                 <div className="mx-auto md:w-1/3 mt-20">
                     <h2 className="text-3xl mb-8 mx-auto flex justify-center text-zinc-600 font-medium">Please Register</h2>
                     <form onSubmit={handleRegister}>
+                        <input required type="text" className="mb-4 w-full py-2 px-4 border-b-teal-200 border-b-2" name="name" placeholder="Your Name" id="" />
+                        <br />
+                        <input required type="image" className="mb-4 w-full py-2 px-4 border-b-teal-200 border-b-2" name="img" placeholder="Your Image" id="" />
+                        <br />
                         <input required type="email" className="mb-4 w-full py-2 px-4 border-b-teal-200 border-b-2" name="email" placeholder="Email Address" id="" />
                         <br />
                         <div className="mb-4 relative">
@@ -83,7 +90,7 @@ const Register = () => {
                         <br />
                         <input className="btn btn-success mb-4 w-full font-bold text-white" type="submit" value="Register" />
                     </form>
-                    <p>Already have an account? <Link to={'/login'}><a href="" className="text-amber-500 underline">Login</a></Link></p>
+                    <p>Already have an account? <Link to={'/login'}><button href="" className="text-amber-500 underline">Login</button></Link></p>
                 </div>
             </div>
         </div>

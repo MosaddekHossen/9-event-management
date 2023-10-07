@@ -16,19 +16,19 @@ const Login = () => {
         signInUser(email, password)
             .then(res => {
                 console.log(res.user)
-                Swal.fire(
-                    'Good job!',
-                    'Success Sign In!',
-                    'success'
-                )
+                Swal.fire('Good job!', 'Success Sign In!', 'success')
+
+                // Verification email   
+                // if (res.user.emailVerified) {
+                //     Swal.fire('Good job!', 'Success Sign In!', 'success')
+                // }
+                // else {
+                //     Swal.fire('Good job!', 'Please verify your email address!', 'success')
+                // }
             })
             .catch(err => {
                 console.log(err.message)
-                Swal.fire(
-                    'Oops!',
-                    err.message,
-                    'error'
-                )
+                Swal.fire('Oops!', err.message, 'error')
             })
     }
 
@@ -37,38 +37,31 @@ const Login = () => {
         const email = emailRef.current.value;
         if (!email) {
             console.log("send", email)
-            Swal.fire(
-                'Oops!',
-                "Please write valid email",
-                'error'
-            )
+            Swal.fire('Oops!', "Please write valid email", 'error')
             return;
         }
         else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
             console.log("Please write a valid email")
-            Swal.fire(
-                'Oops!',
-                "Write valid email",
-                'error'
-            )
+            Swal.fire('Oops!', "Write valid email", 'error')
             return;
         }
+        // error
         resetEmail(email)
             .then(res => {
-                console.log(res.user)
                 Swal.fire(
                     'Oops!',
-                    'err.message',
-                    'error'
+                    'Check email!',
+                    'success'
                 )
+                console.log(res.user)
             })
             .catch(err => {
-                console.log(err.message)
                 Swal.fire(
                     'Good job!',
                     'Check your email!',
                     'success'
                 )
+                console.log(err.message)
             })
     }
 
@@ -82,9 +75,9 @@ const Login = () => {
                                 <span className="label-text">Email</span>
                             </label>
                             <input
-                                ref={emailRef}
                                 type="email"
                                 name="email"
+                                ref={emailRef}
                                 placeholder="Email"
                                 className="input input-bordered"
                                 required />
@@ -102,7 +95,7 @@ const Login = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
-                    <p>Don’t have an account? <Link to={'/register'}><a href="" className="text-amber-500 underline">Create an account</a></Link></p>
+                    <p>Don’t have an account? <Link to={'/register'}><button href="" className="text-amber-500 underline">Create an account</button></Link></p>
                 </div>
             </div>
         </div>
