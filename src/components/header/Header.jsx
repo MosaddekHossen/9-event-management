@@ -12,21 +12,21 @@ const Header = () => {
                 </NavLink>
             </li>
             <li>
-                <NavLink to={'/details'}
+                <NavLink to={'/details/'}
                     className={({ isActive, isPending }) =>
                         isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
                     Details
                 </NavLink>
             </li>
             <li>
-                <NavLink to={'/detals'}
+                <NavLink to={'/register'}
                     className={({ isActive, isPending }) =>
                         isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}>
-                    Two
+                    Register
                 </NavLink>
             </li>
             <li>
-                <NavLink to={'/dff'}
+                <NavLink to={'/login'}
                     className={({ isActive, isPending }) =>
                         isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
                     Login
@@ -44,21 +44,21 @@ const Header = () => {
                 </NavLink>
             </li>
             <li>
-                <NavLink to={'/'}
+                <NavLink to={'/details/'}
                     className={({ isActive, isPending }) =>
                         isPending ? 'pending' : isActive ? 'bg-[#a433aa] my-3 hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
-                    One
+                    Details
                 </NavLink>
             </li>
             <li>
-                <NavLink to={'/'}
+                <NavLink to={'/register'}
                     className={({ isActive, isPending }) =>
                         isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}>
-                    Two
+                    Register
                 </NavLink>
             </li>
             <li>
-                <NavLink to={'/'}
+                <NavLink to={'/login'}
                     className={({ isActive, isPending }) =>
                         isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
                     Login
