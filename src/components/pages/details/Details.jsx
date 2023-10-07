@@ -8,7 +8,7 @@ const Details = () => {
     const { description, name, price, } = card;
     
     return (
-        <div className="max-w-7xl mx-auto my-10">
+        <div className="max-w-7xl mx-auto my-10 px-8 lg:px-0">
             <div className="card bg-slate-500 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={card.picture} alt="Shoes" className="rounded-xl h-[70vh] w-full" />

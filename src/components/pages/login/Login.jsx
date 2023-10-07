@@ -1,11 +1,12 @@
 import { useContext, useRef } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const { signInUser, resetEmail } = useContext(AuthContext)
+    const { signInUser, resetEmail, googleSignIn } = useContext(AuthContext)
     const emailRef = useRef(null);
+    const navigate = useNavigate();
 
     // Login User
     const handleLogin = (e) => {
@@ -17,6 +18,8 @@ const Login = () => {
             .then(res => {
                 console.log(res.user)
                 Swal.fire('Good job!', 'Success Sign In!', 'success')
+                e.target.reset();
+                navigate("/");
 
                 // Verification email   
                 // if (res.user.emailVerified) {
@@ -48,21 +51,23 @@ const Login = () => {
         // error
         resetEmail(email)
             .then(res => {
-                Swal.fire(
-                    'Oops!',
-                    'Check email!',
-                    'success'
-                )
+                Swal.fire('Oops!', 'Check email!', 'success')
                 console.log(res.user)
             })
             .catch(err => {
-                Swal.fire(
-                    'Good job!',
-                    'Check your email!',
-                    'success'
-                )
+                Swal.fire('Good job!', 'Check your email!', 'success')
                 console.log(err.message)
             })
+    }
+
+    // Google Login
+    const handleGoogleLogin = () => {
+        googleSignIn()
+            .then(() => {
+                Swal.fire('Good job!', 'Google Login Successful!', 'success')
+                navigate("/");
+            })
+            .catch(err => Swal.fire('Good job!', err.message, 'error'))
     }
 
     return (
@@ -96,6 +101,7 @@ const Login = () => {
                         </div>
                     </form>
                     <p>Don’t have an account? <Link to={'/register'}><button href="" className="text-amber-500 underline">Create an account</button></Link></p>
+                    <button onClick={handleGoogleLogin} className="btn btn-success w-1/2 text-white">Google Login</button>
                 </div>
             </div>
         </div>

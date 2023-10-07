@@ -5,6 +5,7 @@ import Error from "../components/pages/error/Error";
 import Details from "../components/pages/details/Details";
 import Login from "../components/pages/login/Login";
 import Register from "../components/pages/register/Register";
+import PrivateRoute from "../components/private/PrivateRoute";
 
 const Router = createBrowserRouter([
     {
@@ -18,7 +19,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: `/details/:id`,
-                element: <Details></Details>,
+                element: <PrivateRoute><Details></Details></PrivateRoute>,
                 loader: () => fetch('/data.json')
             },
             {

@@ -1,7 +1,19 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+    // LogOut
+    const handleLogout = () => {
+        logOut()
+            .then(() => Swal.fire('Oops!', 'LogOut Successful!', 'success'))
+            .catch((err) => Swal.fire('Oops!', err.message, 'error'))
+    }
+
     const navLink = <>
         <ul className="menu menu-horizontal px-1 md:flex gap-5 hidden">
             <li>
@@ -25,13 +37,13 @@ const Header = () => {
                     Register
                 </NavLink>
             </li>
-            <li>
+            {/* <li>
                 <NavLink to={'/login'}
                     className={({ isActive, isPending }) =>
                         isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
                     Login
                 </NavLink>
-            </li>
+            </li> */}
         </ul>
     </>
     const navLinkMd = <>
@@ -57,13 +69,13 @@ const Header = () => {
                     Register
                 </NavLink>
             </li>
-            <li>
+            {/* <li>
                 <NavLink to={'/login'}
                     className={({ isActive, isPending }) =>
                         isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
                     Login
                 </NavLink>
-            </li>
+            </li> */}
         </ul>
     </>
     return (
@@ -82,11 +94,16 @@ const Header = () => {
                     {navLink}
                 </div>
                 <div className="navbar-end">
-                    <label tabIndex={0} className="btn btn-secondary btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img src="https://cdn4.buysellads.net/uu/1/127419/1670531697-AdobeTeams.jpg" />
-                        </div>
-                    </label>
+                    {user ? <>
+                        <button onClick={handleLogout} className="btn btn-primary mr-3">Login Out</button>
+                        <h3 className="font-bold text-green-500 mr-3">{user.displayName}</h3>
+                        <label tabIndex={0} className="btn btn-secondary btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img src={user.photoURL} />
+                            </div>
+                        </label>
+                    </>
+                        : <Link to={'/login'}><button className="btn btn-primary mr-3">Login</button></Link>}
                 </div>
             </div>
         </div>
