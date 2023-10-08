@@ -21,7 +21,7 @@ console.log(greetign);
 #### Answer: A: `{}`
 
 <i>Write your explanation here</i>
-
+Details => First the value of greetign is set as {} object. and then if console we will get as the value object of that variable.
 </p>
 </details>
 
