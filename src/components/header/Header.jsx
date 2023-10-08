@@ -15,7 +15,7 @@ const Header = () => {
     }
 
     const navLink = <>
-        <ul className="menu menu-horizontal px-1 md:flex gap-5 hidden">
+        <ul className="menu menu-horizontal px-1 md:flex gap-1 hidden">
             <li>
                 <NavLink to={'/'}
                     className={({ isActive, isPending }) =>
@@ -54,7 +54,7 @@ const Header = () => {
         </ul>
     </>
     const navLinkMd = <>
-        <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52">
+        <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 bg-slate-400 text-white">
             <li>
                 <NavLink to={'/'}
                     className={({ isActive, isPending }) =>
@@ -98,24 +98,26 @@ const Header = () => {
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 text-white font-black w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 text-white bg-slate-600 font-black w-8 rounded-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         {navLinkMd}
                     </div>
                     <Link to='/'><button className="normal-case text-3xl font-bold text-[#6531ae]">Education</button></Link>
                 </div>
-                <div className="navbar-center bg-white px-12 rounded-lg lg:flex">
+                <div className="navbar-center bg-white px-5 rounded-lg lg:flex">
                     {navLink}
                 </div>
                 <div className="navbar-end">
                     {user ? <>
-                        <button onClick={handleLogout} className="btn btn-primary mx-3">Login Out</button>
-                        <h3 className="font-bold text-green-500 mr-3">{user.displayName}</h3>
-                        <label tabIndex={0} className="btn btn-secondary btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img src={user.photoURL} />
-                            </div>
-                        </label>
+                        <div className="flex flex-col lg:flex-row justify-center text-center items-center">
+                            <button onClick={handleLogout} className="btn btn-primary mx-3">Login Out</button>
+                            <h3 className="font-bold text-green-500 mr-3">{user.displayName}</h3>
+                            <label tabIndex={0} className="btn btn-secondary btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user.photoURL} />
+                                </div>
+                            </label>
+                        </div>
                     </>
                         : <Link to={'/login'}><button className="btn btn-primary mr-3">Login</button></Link>}
                 </div>
