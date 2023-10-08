@@ -37,13 +37,20 @@ const Header = () => {
                     Register
                 </NavLink>
             </li>
-            {/* <li>
-                <NavLink to={'/login'}
+            <li>
+                <NavLink to={'/testimonial'}
                     className={({ isActive, isPending }) =>
                         isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
-                    Login
+                    Testimonial
                 </NavLink>
-            </li> */}
+            </li>
+            <li>
+                <NavLink to={'/blog'}
+                    className={({ isActive, isPending }) =>
+                        isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
+                    Blog
+                </NavLink>
+            </li>
         </ul>
     </>
     const navLinkMd = <>
@@ -69,13 +76,20 @@ const Header = () => {
                     Register
                 </NavLink>
             </li>
-            {/* <li>
-                <NavLink to={'/login'}
+            <li>
+                <NavLink to={'/testimonial'}
                     className={({ isActive, isPending }) =>
                         isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
-                    Login
+                    Testimonial
                 </NavLink>
-            </li> */}
+            </li>
+            <li>
+                <NavLink to={'/blog'}
+                    className={({ isActive, isPending }) =>
+                        isPending ? 'pending' : isActive ? 'bg-[#a433aa] hover:text-blue-400 font-bold py-2 px-5 rounded-md text-white' : ''}                        >
+                    Blog
+                </NavLink>
+            </li>
         </ul>
     </>
     return (
@@ -95,7 +109,7 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
                     {user ? <>
-                        <button onClick={handleLogout} className="btn btn-primary mr-3">Login Out</button>
+                        <button onClick={handleLogout} className="btn btn-primary mx-3">Login Out</button>
                         <h3 className="font-bold text-green-500 mr-3">{user.displayName}</h3>
                         <label tabIndex={0} className="btn btn-secondary btn-circle avatar">
                             <div className="w-10 rounded-full">

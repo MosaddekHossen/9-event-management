@@ -6,6 +6,9 @@ import Details from "../components/pages/details/Details";
 import Login from "../components/pages/login/Login";
 import Register from "../components/pages/register/Register";
 import PrivateRoute from "../components/private/PrivateRoute";
+import Testimonial from "../components/pages/testimonial/Testimonial";
+import Blog from "../components/pages/blog/Blog";
+import Default from "../components/pages/default/Default";
 
 const Router = createBrowserRouter([
     {
@@ -29,6 +32,18 @@ const Router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/testimonial',
+                element: <PrivateRoute><Testimonial></Testimonial></PrivateRoute>
+            },
+            {
+                path: '/blog',
+                element: <PrivateRoute><Blog></Blog></PrivateRoute>
+            },
+            {
+                path: '/details',
+                element: <Default></Default>
             }
         ]
     }
