@@ -2,6 +2,9 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
 
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
+
 export const AuthContext = createContext(null)
 const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
@@ -55,6 +58,12 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
+
+
+    // useEffect(() => {
+    //     Aos.init();
+    // }, [])
+
 
     // Object
     const authInfo = {

@@ -1,15 +1,20 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from "react-router-dom";
 import { sendEmailVerification, updateProfile } from "firebase/auth";
+import 'aos/dist/aos.css';
+import Aos from "aos";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     const { createUser } = useContext(AuthContext);
+    useEffect(() => {
+        Aos.init();
+    }, [])
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -65,7 +70,7 @@ const Register = () => {
     }
     return (
         <div>
-            <div className="text-center px-8 lg:px-0 pb-10">
+            <div className="text-center px-8 lg:px-0 pb-10" data-aos="flip-down">
                 <div className="mx-auto md:w-1/3 mt-20">
                     <h2 className="text-3xl mb-8 mx-auto flex justify-center text-zinc-600 font-medium">Please Register</h2>
                     <form onSubmit={handleRegister}>

@@ -1,8 +1,14 @@
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const Slider = () => {
+    useEffect(() => {
+        Aos.init();
+    }, [])
     return (
-        <div className="max-w-7xl mx-auto lg:pt-10 pt-0 text-center">
-            <h2 className="lg:text-5xl text-3xl font-bold py-10">BRAND NEW</h2>
+        <div className="max-w-7xl mx-auto lg:pt-10 pt-0 text-center" data-aos="fade-up">
+            <h2 className="lg:text-5xl text-3xl font-bold pb-10">BRAND NEW</h2>
             <div className="carousel w-full h-[60vh]">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src="https://i.ibb.co/PgrQH8T/Corpus-Christi-College-New-Court-Cambridge-UK-Diliff.jpg" className="w-full" />

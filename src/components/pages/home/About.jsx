@@ -1,7 +1,13 @@
+import Aos from "aos";
+import { useEffect } from "react";
+import 'aos/dist/aos.css';
 
 const About = () => {
+    useEffect(() => {
+        Aos.init();
+    }, [])
     return (
-        <div className="mt-10 py-5 md:my-20 px-8 lg:px-0 image2 opacity-80">
+        <div className="mt-10 py-5 md:my-20 px-8 lg:px-0 image2 opacity-80" data-aos="zoom-out-left">
             <div className="text-center">
                 <h2 className="lg:text-5xl md:text-5 text-2xl font-semibold mb-2 text-[#fhh45f]">ABOUT</h2>
                 <h2 className="lg:text-4xl md:text-3xl text-2xl font-bold pb-2 text-[#3e35a3]">ENNOBLE LEARNING SERVICES</h2>
