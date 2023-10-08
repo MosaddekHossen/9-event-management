@@ -20,8 +20,8 @@ console.log(greetign);
 
 #### Answer: A: `{}`
 
-<i>Write your explanation here</i>
-Details => First the value of greetign is set as {} object. and then if console we will get as the value object of that variable.
+<i>Details => </i>
+First the value of greetign is set as {} object. and then if console we will get as the value object of that variable.
 </p>
 </details>
 
@@ -43,10 +43,10 @@ sum(1, "2");
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: C: `"12"`
 
-<i>Write your explanation here</i>
-
+<i>Details => </i>
+In JavaScript, when i use the + operator with a string and a number, it performs concatenation instead of addition. In this case, 1 is a number, and "2" is a string, so when i use + to add them together, JavaScript will concatenate them as strings, resulting in "12"
 </p>
 </details>
 
@@ -69,10 +69,10 @@ console.log(food);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: B: `['🍝', '🍫', '🥑', '🍔']`
 
-<i>Write your explanation here</i>
-
+<i>Details => </i>
+In the code provided, the info.favoriteFood is initially assigned the value of the first element of the food array, which is "🍕". However, later in the code, it is reassigned to "🍝". This change does not affect the food array itself, so when i am console.log(food), it will still output the original food array with "🍕" replaced by "🍝".
 </p>
 </details>
 
@@ -94,10 +94,10 @@ console.log(sayHi());
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: B: `Hi there, undefined`
 
-<i>Write your explanation here</i>
-
+<i>Details => </i>
+In the code provided, the sayHi function expects a parameter name, but when i call sayHi() without passing any arguments, name becomes undefined. Therefore, the function returns "Hi there, undefined".
 </p>
 </details>
 
@@ -122,9 +122,9 @@ console.log(count);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: C: 3
 
-<i>Write your explanation here</i>
-
+<i>Details => </i>
+The code counts the number of truthy values in the nums array and assigns the count to the count variable. In this case, elements 1, 2, and 3 are truthy because they are not equal to 0. The count variable is incremented by 1 for each truthy value encountered in the nums array.
 </p>
 </details>
