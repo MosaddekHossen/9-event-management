@@ -3,7 +3,7 @@ import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from "react-router-dom";
-import { sendEmailVerification, updateProfile } from "firebase/auth";
+import { reload, sendEmailVerification, updateProfile } from "firebase/auth";
 import 'aos/dist/aos.css';
 import Aos from "aos";
 
@@ -50,6 +50,7 @@ const Register = () => {
                 })
                     .then(() => {
                         console.log("Update Profile!")
+                        window.location.reload();
                         // Swal.fire('Oops!', "Update Profile!", 'success')
                     })
                     .catch(err => {

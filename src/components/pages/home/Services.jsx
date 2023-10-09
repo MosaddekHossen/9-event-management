@@ -1,16 +1,18 @@
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Service from "./Service";
-import 'aos/dist/aos.css';
-import Aos from "aos";
+// import 'aos/dist/aos.css';
+// import Aos from "aos";
 
 const Services = () => {
     const { data } = useContext(AuthContext)
-   useEffect(()=>{
-    Aos.init();
-   },[])
+
+//    useEffect(()=>{
+//     Aos.init();
+//    },[])
+
     return (
-        <div className="mt-10 md:my-20 mb-10 px-8 lg:px-0" data-aos="flip-left"
+        <div className="mt-10 md:my-20 mb-10 px-8 lg:px-0" // data-aos="flip-left"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000">
             <div className="text-center">

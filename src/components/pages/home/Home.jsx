@@ -1,4 +1,3 @@
-import Footer from "../../footer/Footer";
 import About from "./About";
 import Banner from "./Banner";
 import Services from "./Services";
@@ -13,7 +12,6 @@ const Home = () => {
                 <Services></Services>
                 <About></About>
             </div>
-            <Footer></Footer>
         </>
     );
 };
