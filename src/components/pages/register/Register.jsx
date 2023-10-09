@@ -72,8 +72,8 @@ const Register = () => {
     return (
         <div>
             <div className="text-center px-8 lg:px-0 pb-10" data-aos="flip-down">
-                <div className="mx-auto md:w-1/3 mt-20">
-                    <h2 className="text-3xl mb-8 mx-auto flex justify-center text-zinc-600 font-medium">Please Register</h2>
+                <div className="mx-auto md:w-1/3 mt-20 bg-[#8470c2] p-5 rounded-lg">
+                    <h2 className="text-3xl mb-8 mx-auto flex justify-center font-medium text-white">Please Register</h2>
                     <form onSubmit={handleRegister}>
                         <input required type="text" className="mb-4 w-full py-2 px-4 border-b-teal-200 border-b-2" name="name" placeholder="Your Name" id="" />
                         <br />
@@ -94,12 +94,12 @@ const Register = () => {
                         <br />
                         <div className="mb-2">
                             <input type="checkbox" name="terms" id="terms" />
-                            <label className="ml-1" htmlFor="terms">Accept our <a href="">Terms and conditions</a></label>
+                            <label className="ml-1 text-white" htmlFor="terms">Accept our <a href="">Terms and conditions</a></label>
                         </div>
                         <br />
-                        <input className="btn btn-success mb-4 w-full font-bold text-white" type="submit" value="Register" />
+                        <input className="btn bg-[#e727d7] mb-4 w-full font-bold hover:text-lime-600 text-white" type="submit" value="Register" />
                     </form>
-                    <p>Already have an account? <Link to={'/login'}><button href="" className="text-amber-500 underline">Login</button></Link></p>
+                    <p className="text-white">Already have an account? <Link to={'/login'}><button href="" className="text-amber-500 underline">Login</button></Link></p>
                 </div>
             </div>
         </div>
